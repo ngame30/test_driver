@@ -5,10 +5,12 @@ class _ScenarioWidget extends StatelessWidget {
     Key? key,
     required this.keyName,
     required this.initScenario,
+    required this.testWidget,
   }) : super(key: key);
 
   final String keyName;
   final Function initScenario;
+  final Widget testWidget;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +23,7 @@ class _ScenarioWidget extends StatelessWidget {
         await Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (_) => WidgetRegister.widget,
+            builder: (_) => testWidget,
           ),
         );
       },

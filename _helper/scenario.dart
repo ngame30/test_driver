@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 
@@ -10,11 +11,15 @@ abstract class Scenario extends StatelessWidget {
 
   Future<void> initScenario() async {}
 
+  Widget get testWidget => WidgetRegister.widget;
+
+  @nonVirtual
   String get keyName => runtimeType.toString();
 
   @override
   Widget build(BuildContext context) => _ScenarioWidget(
         keyName: keyName,
         initScenario: initScenario,
+        testWidget: testWidget,
       );
 }
